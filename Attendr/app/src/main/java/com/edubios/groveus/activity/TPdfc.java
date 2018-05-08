@@ -502,4 +502,12 @@ public class TPdfc extends ActionBarActivity implements Response.Listener<byte[]
                 return true;
         }
     }
+    @Override
+    public void onBackPressed() {
+        if (this.sDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            this.sDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
