@@ -264,4 +264,12 @@ public class TContactUs extends AppCompatActivity implements NavigationView.OnNa
         }
 
     }
+    @Override
+    public void onBackPressed() {
+        if (this.sDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            this.sDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
