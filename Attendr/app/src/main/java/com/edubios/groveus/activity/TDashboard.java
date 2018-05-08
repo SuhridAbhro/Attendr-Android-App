@@ -682,23 +682,49 @@ public class TDashboard extends AppCompatActivity implements NavigationView.OnNa
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setIcon(R.drawable.dialog_warning)
-                .setTitle("Closing ATTENDR")
-                .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent a = new Intent(Intent.ACTION_MAIN);
-                        a.addCategory(Intent.CATEGORY_HOME);
-                        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(a);
 
-                    }
+        if (this.sDrawerLayout.isDrawerOpen(GravityCompat.START))
+        {
+            this.sDrawerLayout.closeDrawer(GravityCompat.START);
+            new AlertDialog.Builder(this)
+                    .setIcon(R.drawable.dialog_warning)
+                    .setTitle("Closing ATTENDR")
+                    .setMessage("Are you sure you want to exit?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent a = new Intent(Intent.ACTION_MAIN);
+                            a.addCategory(Intent.CATEGORY_HOME);
+                            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(a);
 
-                })
-                .setNegativeButton("No", null)
-                .show();
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        } else
+        {
+            this.sDrawerLayout.closeDrawer(GravityCompat.START);
+            new AlertDialog.Builder(this)
+                    .setIcon(R.drawable.dialog_warning)
+                    .setTitle("Closing ATTENDR")
+                    .setMessage("Are you sure you want to exit?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent a = new Intent(Intent.ACTION_MAIN);
+                            a.addCategory(Intent.CATEGORY_HOME);
+                            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(a);
+
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        }
+
     }
 
     @Override
